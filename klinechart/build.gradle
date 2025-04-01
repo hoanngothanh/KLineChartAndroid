@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: 'publish.gradle'
 
 android {
     compileSdkVersion 30
@@ -19,12 +18,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
     }
 
     androidExtensions {
         experimental = true
     }
 
+    namespace 'com.liihuu.klinechart'
 }
 
 dependencies {
